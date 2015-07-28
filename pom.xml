@@ -23,6 +23,13 @@
         </repository>
     </distributionManagement>
 
+    <scm>
+        <connection>scm:git:git@github.com:ggtools/regex-copy-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:ggtools/regex-copy-plugin.git</developerConnection>
+        <url>https://github.com/ggtools/regex-copy-plugin</url>
+    </scm>
+
+
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>
