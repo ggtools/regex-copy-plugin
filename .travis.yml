@@ -1,4 +1,21 @@
 language: java
+
 jdk:
   - oraclejdk8
   - oraclejdk7
+
+after_success:
+  - mvn clean cobertura:cobertura coveralls:report javadoc:jar
+  - test "${TRAVIS_PULL_REQUEST}" == "false" && test “${TRAVIS_JDK_VERSION}” == “oraclejdk7″ && test "${TRAVIS_TAG}" != "" && mvn deploy --settings travis/travis-settings.xml
+
+branches:
+  only:
+    - master
+      # Build tags that match this regex in addition to building the master branch.
+    - /^regex-copy-maven-plugin-[0-9]+\.[0-9]+\.[0-9]+/
+
+
+env:
+  global:
+    - secure: "CEWrBkIXcbfoM3Pvmkn2HwEcoLokC4HLqEwR6zxrgMmAF+vVA6pdFAO76zgjdGW1UZDELlSS1FFHCjU1PZFWOVk5fEKt3Q/jU2Yw1rcV8vkYUMG9NsVr0FxJs3R5aMdAkzD6b5qhiC/Doo88iRjDhu/vgyibcyJILjna2EjORj1GLJIb9mgnOkwD20pRC9qBbkONFWUVEAs1mtt003Lu8aiDYGLbGZghAmOtArRFCeAkX+1UhNOBN+gULoRBuhUZ37vufIZJ/1KUn+4eQ0ZwEVViaZHel7JM+c3mUZK22YOZkUfXULm6th++tcf75IX2N9gbmvs6NbAumEDU5MLkWkROJ7AxmJRdo6MrqRF//z7m22qpZRc8vngXBVK/1TWD+cb01Id1j3OtbYHKEsXSBSF5Oc6Dg0H7oFoMezXYRa3fvIrOlM5lb+re5DsToFIinUB6pYZpSaK1MgphZ1Y+ZVTQ3COS7/x/9bIj4hBtrDYg7eO5/heozq+d5Tn1JmRuDEntsBEG68pleJeD4sQaZx6o0lIiG8aHOaw6+XOuS57RpHiVaWm8smkjT5Y2m0T42rtsM+6+el1NEeXxPpEZKt+XYKS8PFj9gAM11535SFzQjPEHXIoW3ckUGDycZqblo0pBF41LIZG5GjoLo/7+dkETtcSyvjPNWdsj9XRQpiU="
+    - secure: "oZZ3UkzgF3IhOQmoL7CkbdFL6IGadgOwyBrTW1KQzyNB/MqnYPFgFPqMJHrYERByQmRSlzbzibJi11rgLwev+ZaXIEc8TDbKngm3nHd7Da0azl6U6lQg5DII1WMLPVIH1vUTWGNAQbn16PzvXN35dM6F8+23n+sbykvbaxqlNtKn/5iaZZt7w7mlQrsfl498N+lJ1COeFzXu73aakdBVji2VsvZsWZmUbb/RyhnUEXm4l4E40yyGz4iQEWv0mHxQXUp2RQCJhkvlt2S11rMWBHde8PHgv9y5paKsEQKgqfojLkn/2SoB8H5+/5PYkT3Mo2hMenb1/qgPbt38R9QXCoLIYZEsBEwW94Zp2Z+xMR+ua3EJhEm7bbh8876gUL7kI3kWmgp9qSXylRVcp/HuWNL9TcLxlZiYF1x/r1QPTO63w4ithj0N6RL/lGZHSyXaD9+GvxtJBjb+mPCWildEpk6j5Rkr2oCVKROKMSQMVRTTDQpaeZTCpyS17kslqTEV7b0c51IbJUfMaSqtr8nh+Xfq/F0c7Ur0DsPPsmq2KZ2a7doy7uUOjlCHXVvrV6yZqysbeTPDPlGla6RHxsJBbGf5chkNoCRAH4mEtorQCFQDHXcfOCaYhq2Wb9D95e/SMU2UR7oi2203PXLjEf02ldNpHUwU96uV7VBZBBKwhzM="
