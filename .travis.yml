@@ -5,8 +5,6 @@ jdk:
   - oraclejdk7
 
 after_success:
-  - mvn clean javadoc:jar
-  - env
   - test "${TRAVIS_PULL_REQUEST}" == "false" && test "${TRAVIS_JDK_VERSION}" == "oraclejdk7" && test "${TRAVIS_TAG}" != "" && mvn deploy --settings travis/travis-settings.xml
 
 branches:
