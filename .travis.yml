@@ -12,7 +12,7 @@ branches:
   only:
     - master
       # Build tags that match this regex in addition to building the master branch.
-    - /^regex-copy-maven-plugin-[0-9]+\.[0-9]+\.[0-9]+/
+    - /^regex-copy-maven-plugin-[0-9]+\.[0-9]+(\.[0-9]+)?/
 
 
 env:
