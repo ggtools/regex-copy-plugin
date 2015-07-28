@@ -16,7 +16,7 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray-clabouisse-maven</id>
+            <id>bintray</id>
             <name>bintray</name>
             <url>https://api.bintray.com/maven/clabouisse/maven/regex-copy-maven-plugin;publish=1</url>
         </repository>
