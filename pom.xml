@@ -8,11 +8,20 @@
     <packaging>maven-plugin</packaging>
 
     <name>regex-copy-plugin Maven Mojo</name>
+    <description>A resource copy plugin on steroids using regex to match and rename resources.</description>
+    <url>https://github.com/ggtools/regex-copy-plugin</url>
 
     <properties>
         <maven.version>3.3.3</maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
 
     <distributionManagement>
         <repository>
@@ -21,6 +30,14 @@
             <url>https://api.bintray.com/maven/clabouisse/maven/regex-copy-maven-plugin;publish=1</url>
         </repository>
     </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>ggtools</id>
+            <name>Christophe Labouisse</name>
+            <email>christophe@labouisse.org</email>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:git:git@github.com:ggtools/regex-copy-plugin.git</connection>
